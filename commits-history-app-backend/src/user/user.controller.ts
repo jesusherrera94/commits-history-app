@@ -14,10 +14,4 @@ export class UserController {
         return this.userService.getUser(dto);
     }
 
-    @Get('getcommits')
-    getCommits() {
-        console.log('test method')
-        return {test: 'method'}
-    }
-
 }

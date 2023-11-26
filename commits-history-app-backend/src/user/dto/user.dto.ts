@@ -5,7 +5,7 @@ export class userRequestDTO {
     user: string;
 }
 
-export interface userResponseDTO {
+export interface userDataDTO {
     profileUrl: string;
     name: string;
     location: string;
