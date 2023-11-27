@@ -20,7 +20,7 @@ If you want to change the backend port change the value directly in code on file
 ```
 await app.listen(3000);
 ```
-## CUANDO CLONAS EL REPO NO EXISTE LA VARIABLE QUE MENCIONAS ABAJO
+
 If you change the backend port, add the variable BACKEND-PORT on ```commits-history-app-fronted/.env``` to maintain a connection witout any issue
 
 
