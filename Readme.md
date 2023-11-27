@@ -8,9 +8,10 @@ Token generation doc: https://docs.github.com/en/authentication/keeping-your-acc
 
 Needs to install Node js (v.18.18.2), and Nestjs (v10.2.1)
 
-Frontend (commits-history-app-frontend folder) and backend (commits-history-app-backend folder) are in the same repo, in the root path there is a package json that have two npm commands:
+Frontend (commits-history-app-frontend folder) and backend (commits-history-app-backend folder) are in the same repo, in the root path there is a package json that have three npm commands:
 * install-app: Go throw the folders and install all the dependecies
-* run: intialize the backend and frontend
+* start-backend: intialize the Nestjs backend
+* start-frontend: intialize the React js frontend
 
 The backend will run in port 3000 by default and the frontend on 5173. 
 
