@@ -2,6 +2,8 @@
 
 This apps gather the commits history for his own repo by default, but has the posibility to use it for any public repo on github or private if you have a token
 
+Token generation doc: https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens
+
 # Settings:
 
 Needs to install Node js (v.18.18.2), and Nestjs (v10.2.1)
