@@ -7,8 +7,7 @@ const getUserServices =  (user: string, token: string): Promise<userInterface> =
             user,
             token
         }
-        console.log(params)
-        axios.get('http://localhost:3000/user/getuser', { params })
+        axios.get(`${import.meta.env.VITE_BACKEND_PORT}user/getuser`, { params })
         .then((response) =>{ 
             res(response.data)
         })

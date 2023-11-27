@@ -1,5 +1,5 @@
 import axios from "axios";
-import { commitsArray, commitsInterface } from "../types/commitsResponse";
+import { commitsInterface } from "../types/commitsResponse";
 
 const getCommitsService =  (user: string, repo: string, token: string, perPage: string, page: string): Promise<Array<commitsInterface>> => {
     return new Promise((res,rej) => {
@@ -10,8 +10,7 @@ const getCommitsService =  (user: string, repo: string, token: string, perPage: 
             page,
             token
         }
-        console.log(params)
-        axios.get('http://localhost:3000/commits/getcommits', { params })
+        axios.get(`${import.meta.env.VITE_BACKEND_PORT}commits/getcommits`, { params })
         .then((response) =>{ 
             res(response.data)
         })

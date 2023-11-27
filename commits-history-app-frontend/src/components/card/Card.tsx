@@ -2,7 +2,6 @@ import React from 'react'
 import { commitsInterface, commitsProp } from '../../types/commitsResponse'
 
 export default function Card(props: commitsProp) {
-  console.log('props', props)
   return (
     <span className="relative block py-3 px-8 overflow-hidden border bg-white border-slate-100 rounded-lg my-4 drop-shadow-xl">
         <div className="justify-between sm:flex">

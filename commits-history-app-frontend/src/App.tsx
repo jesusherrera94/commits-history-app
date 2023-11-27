@@ -29,7 +29,6 @@ function App() {
     profileAvatar: '',
   })
   const [commitsObject, setCommitsObject] = useState<commitsArray>()
-  const [refresh, setRefresh] = useState<boolean>(true)
 
   useEffect(() => {
 
@@ -39,7 +38,6 @@ function App() {
           globalStateValues.user,
           globalStateValues.token
         )
-        console.log('user', user)
         const commitsResponse : Array<commitsInterface> =  await getCommitsService(
           globalStateValues.user,
           globalStateValues.repo,
