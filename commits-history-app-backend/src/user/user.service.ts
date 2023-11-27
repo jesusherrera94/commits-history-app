@@ -15,9 +15,14 @@ export class UserService {
 
     async getUser(dto: userRequestDTO): Promise<userDataDTO> {
         try {
-            const { user } = dto
+            const { user, token } = dto
             const url = `${GITHUB_API_URL}users/${user}`
-            let userData = await firstValueFrom(this.httpService.get(url))
+
+            const headers = {
+                Authorization: `Bearer ${token}`,
+            };
+
+            let userData = await firstValueFrom(this.httpService.get(url, { headers }))
             
             const response: userDataDTO = {
                 profileUrl: userData.data.html_url,
@@ -30,6 +35,7 @@ export class UserService {
             return response
         } catch (error) {
             const ErrorMessage = `Error getting user info for ${dto.user} - ${error}`
+            console.error(ErrorMessage)
             const statusCode = error.response.status
             requestHandler(statusCode, ErrorMessage)
         }

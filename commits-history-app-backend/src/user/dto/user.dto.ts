@@ -3,6 +3,7 @@ import { IsNotEmpty } from "class-validator";
 export class userRequestDTO {
     @IsNotEmpty()
     user: string;
+    token: string;
 }
 
 export interface userDataDTO {

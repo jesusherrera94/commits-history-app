@@ -1,4 +1,4 @@
-import { Body, Controller, Get } from "@nestjs/common";
+import { Controller, Get, Query } from "@nestjs/common";
 import { commitsService } from "./commits.service";
 import { commitsRequestDTO } from "./dto/commits.dto";
 
@@ -10,7 +10,8 @@ export class commitsController {
     ) {}
 
     @Get('getcommits')
-    getCommits(@Body() dto: commitsRequestDTO) {
+    getCommits(@Query() dto: commitsRequestDTO) {
+        console.log(dto)
         return this.commitsService.getCommits(dto)
     }
 

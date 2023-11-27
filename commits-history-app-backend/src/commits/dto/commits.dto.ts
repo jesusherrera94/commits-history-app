@@ -8,11 +8,9 @@ export class commitsRequestDTO {
     repo: string;
 
     @IsNotEmpty()
-    @IsNumber()
     perPage: number;
     
     @IsNotEmpty()
-    @IsNumber()
     page: number
 
     token: string

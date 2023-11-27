@@ -1,4 +1,4 @@
-import { Body, Controller, Get } from "@nestjs/common";
+import { Controller, Get, Query} from "@nestjs/common";
 import { UserService } from "./user.service";
 import { userRequestDTO } from "./dto";
 
@@ -10,7 +10,7 @@ export class UserController {
     ) {}
 
     @Get('getuser')
-    getUser(@Body() dto: userRequestDTO) {
+    getUser(@Query() dto: userRequestDTO) {
         return this.userService.getUser(dto);
     }
 
