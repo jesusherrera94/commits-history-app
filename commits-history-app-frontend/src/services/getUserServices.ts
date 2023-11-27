@@ -5,7 +5,7 @@ const getUserServices =  (user: string, token: string): Promise<userInterface> =
     return new Promise((res,rej) => {
         const params = {
             user,
-            token //: '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'
+            token
         }
         console.log(params)
         axios.get('http://localhost:3000/user/getuser', { params })
@@ -13,6 +13,7 @@ const getUserServices =  (user: string, token: string): Promise<userInterface> =
             res(response.data)
         })
         .catch((err) => {
+            console.log(JSON.stringify(err))
             rej(err)
         })
     })

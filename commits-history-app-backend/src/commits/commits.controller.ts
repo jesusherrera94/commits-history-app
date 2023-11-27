@@ -11,7 +11,7 @@ export class commitsController {
 
     @Get('getcommits')
     getCommits(@Query() dto: commitsRequestDTO) {
-        console.log(dto)
+        console.log('aqui', dto)
         return this.commitsService.getCommits(dto)
     }
 

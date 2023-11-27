@@ -3,7 +3,9 @@ export interface global {
     repo: string,
     token: string,
     page: string,
-    perPage: string
+    perPage: string,
+    nextPage: boolean,
+    prevPage: boolean
 }
 
 export interface globalState {

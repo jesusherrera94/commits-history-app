@@ -3,7 +3,8 @@ export interface commitsInterface {
     author: authorInterface;
     url: string;
     message: string;
-    nextUrl: string;
+    nextPage: boolean;
+    prevPage: boolean
 }
 
 export interface authorInterface {

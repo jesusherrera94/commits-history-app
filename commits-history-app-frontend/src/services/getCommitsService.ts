@@ -8,7 +8,7 @@ const getCommitsService =  (user: string, repo: string, token: string, perPage: 
             repo,
             perPage,
             page,
-            token: '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'
+            token
         }
         console.log(params)
         axios.get('http://localhost:3000/commits/getcommits', { params })

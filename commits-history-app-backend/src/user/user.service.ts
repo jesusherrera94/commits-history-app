@@ -18,9 +18,15 @@ export class UserService {
             const { user, token } = dto
             const url = `${GITHUB_API_URL}users/${user}`
 
-            const headers = {
-                Authorization: `Bearer ${token}`,
-            };
+            let headers = {}
+            if (token) {
+                headers = {
+                    Authorization: `Bearer ${token}`,
+                };
+            }
+
+            console.log(url)
+            console.log(headers)
 
             let userData = await firstValueFrom(this.httpService.get(url, { headers }))
             

@@ -5,7 +5,9 @@ const initialState = {
     repo: 'commits-history-app',
     token: '',
     page: '1',
-    perPage: '5'
+    perPage: '5',
+    nextPage: true,
+    prevPage: false
 }
 
 export const globalSlice = createSlice({
@@ -19,14 +21,19 @@ export const globalSlice = createSlice({
             state.token = token
         },
         updatePage: (state, action) => {
-            const { page } = action.payload
-            state.page = page
+            console.log(action.payload)
+            state.page = action.payload
         },
         updateItemsPerPage: (state, action) => {
             state.perPage = action.payload
         },
+        updateNextPrevPage: (state, action) => {
+            const { nextPage, prevPage} = action.payload
+            state.nextPage = nextPage
+            state.prevPage = prevPage
+        },
     }
 })
 
-export const { updateRepoForm, updatePage, updateItemsPerPage } = globalSlice.actions
+export const { updateRepoForm, updatePage, updateItemsPerPage, updateNextPrevPage } = globalSlice.actions
 export default globalSlice.reducer

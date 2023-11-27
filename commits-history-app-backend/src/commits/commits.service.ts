@@ -15,32 +15,34 @@ export class commitsService {
         try {
             const { user, repo, perPage, page, token } = dto
 
-            const headers = {
-                Authorization: `Bearer ${token}`,
-              };
+            let headers = {}
+            if (token) {
+                headers = {
+                    Authorization: `Bearer ${token}`,
+                };
+            }
+
             const params: object = {
                 per_page: perPage,
                 page
             }
             const url = `${GITHUB_API_URL}repos/${user}/${repo}/commits`
+            console.log('url', url)
             let userData = await firstValueFrom(this.httpService.get(url, { params, headers }))
             
-            let nextUrl: string = '';
             const pages: string = userData.headers.link
-            const pagesRemaining: Boolean = pages && pages.includes(`rel=\"next\"`);
+            const nextPage: Boolean = pages && pages.includes(`rel=\"next\"`);
+            const prevPage: Boolean = pages && pages.includes(`rel=\"prev\"`);
            
-
-            if (pagesRemaining) {
-                nextUrl = pages.match(/(?<=<)([\S]*)(?=>; rel="Next")/i)[0];
-            }
-
+           
             const response: commitsDataDTO = userData.data.map((obj) => {
                 return {
                     sha: obj.sha,
                     author: obj.commit.author,
                     url: obj.html_url,
                     message: obj.commit.message,
-                    nextUrl
+                    nextPage,
+                    prevPage
                 }
             });
     
