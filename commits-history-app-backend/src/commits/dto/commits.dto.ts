@@ -23,4 +23,5 @@ export interface commitsDataDTO {
     author: Object;
     url: string;
     message: string;
+    nextUrl: string;
 }

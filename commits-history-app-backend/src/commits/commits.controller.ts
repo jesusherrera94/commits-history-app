@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Headers } from "@nestjs/common";
+import { Body, Controller, Get } from "@nestjs/common";
 import { commitsService } from "./commits.service";
 import { commitsRequestDTO } from "./dto/commits.dto";
 

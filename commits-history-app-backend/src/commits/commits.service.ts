@@ -24,13 +24,23 @@ export class commitsService {
             }
             const url = `${GITHUB_API_URL}repos/${user}/${repo}/commits`
             let userData = await firstValueFrom(this.httpService.get(url, { params, headers }))
+            
+            let nextUrl: string = '';
+            const pages: string = userData.headers.link
+            const pagesRemaining: Boolean = pages && pages.includes(`rel=\"next\"`);
+           
+
+            if (pagesRemaining) {
+                nextUrl = pages.match(/(?<=<)([\S]*)(?=>; rel="Next")/i)[0];
+            }
 
             const response: commitsDataDTO = userData.data.map((obj) => {
                 return {
                     sha: obj.sha,
                     author: obj.commit.author,
                     url: obj.html_url,
-                    message: obj.commit.message
+                    message: obj.commit.message,
+                    nextUrl
                 }
             });
     

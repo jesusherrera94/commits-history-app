@@ -2,28 +2,37 @@ import { useState, useEffect } from 'react'
 import getUserServices from './services/getUserServices'
 import './App.css'
 import { userInterface } from './types/userResponse'
+import Profile from './components/profile/Profile'
+import RepoForm from './components/repoForm/RepoForm'
+import Card from './components/card/Card'
+import Pagination from './components/pagination/Pagination'
 
 function App() {
-  const [value, setValue] = useState<string>('')
+  const [userData, setUserData] = useState<string>('')
 
   useEffect(() => {
 
-    const getUser = async () => {
+    const fetchUserAndRepoData = async () => {
       const user : userInterface = await getUserServices()
-      setValue(user.test)
+      console.log('')
+      setUserData(user.test)
     }
 
-    getUser()
+    fetchUserAndRepoData()
 
-  }, [])
-
-
-
-  
+  })
 
   return (
     <>
-      <div>this is the test {value}</div>
+      <div className='flex flex-col md:flex-row'>
+        <Profile />
+        <RepoForm />
+      </div>
+      <Pagination />
+      <Card />
+      <Card />
+      <Card />
+      <Card />
     </>
   )
 }
